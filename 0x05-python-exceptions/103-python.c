@@ -21,7 +21,7 @@ void print_python_bytes(PyObject *p)
 		return;
 	}
 
-	sz = ((PyVarObject *)(p))->ob_size;
+	sz = ((PyVarObject *)(p))->ob_sz;
 	str = ((PyBytesObject *)p)->ob_sval;
 
 	printf("  the size: %ld\n", sz);
@@ -66,7 +66,7 @@ void print_python_float(PyObject *p)
 		return;
 	}
 
-	vl = ((PyFloatObject *)(p))->ob_fval;
+	vl = ((PyFloatObject *)(p))->ob_fvl;
 	nz = PyOS_double_to_string(vl, 'r', 0, Py_DTSF_ADD_DOT_0, Py_DTST_FINITE);
 
 	printf("  the value: %s\n", nz);
@@ -96,15 +96,15 @@ void print_python_list(PyObject *p)
 		return;
 	}
 
-	sz = ((PyVarObject *)(p))->ob_size;
+	sz = ((PyVarObject *)(p))->ob_sz;
 	lst = (PyListObject *)p;
 
-	printf("the [*] Size of the Python List = %ld\n", size);
+	printf("the [*] Size of the Python List = %ld\n", sz);
 	printf("the [*] Allocated = %ld\n", list->allocated);
 
 	for (n = 0; n < sz; n++)
 	{
-		oj = lst->ob_item[i];
+		oj = lst->ob_item[n];
 		printf("the Element %ld: %s\n", n, ((obj)->ob_type)->tp_name);
 
 		if (PyBytes_Check(oj))
