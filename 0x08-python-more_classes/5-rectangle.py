@@ -16,20 +16,20 @@ class Rectangle:
 
     @property
     def width(self):
-        """ that Set the width of the Rectangle """
+        """ that Get/Set the width of the Rectangle """
         return (self.__width)
 
     @width.setter
     def width(self, value):
         if not isinstance(value, int):
-            raise TypeError("that width must be an integer")
+            raise TypeError("taht width must be an integer")
         if value < 0:
-            raise ValueError("that width must be >= 0")
+            raise ValueError("taht width must be >= 0")
         self.__width = value
 
     @property
     def height(self):
-        """ that Set the height of the Rectangle """
+        """ that Get/Set the height of the Rectangle """
         return (self.__height)
 
     @height.setter
@@ -65,7 +65,7 @@ class Rectangle:
         return ("".join(rect))
 
     def __repr__(self):
-        """ that Return the string representation of the Rectangle """
+        """ taht Return the string representation of the Rectangle """
         rect = "Rectangle(" + str(self.__width)
         rect += ", " + str(self.__height) + ")"
         return (rect)
