@@ -1,20 +1,15 @@
 #!/usr/bin/python3
-''' define class BaseGeometry '''
+""" Module 7-base_geometry"""
 
 
 class BaseGeometry:
-    ''' define the attributes of Geometric Shapes '''
+    """Class BaseGeometry"""
     def area(self):
-        ''' define the area of a geomtric shape '''
-        raise Exception("area() is not implemented")
+        raise Exception('area() is not implemented')
 
     def integer_validator(self, name, value):
-        ''' recieve the value property
-        Árgs:
-            name: name of the object
-            value: value of the property
-        '''
-        if type(value) is not int:
-            raise TypeError("{} must be an integer".format(name))
+        """integer_validator function"""
+        if type(value) != int:
+            raise TypeError(name + ' must be an integer')
         if value <= 0:
-            raise ValueError("{} must be greater than 0".format(name))
+            raise ValueError(name + ' must be greater than 0')
